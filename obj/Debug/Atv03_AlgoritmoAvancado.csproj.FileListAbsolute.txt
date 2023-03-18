@@ -1,0 +1,8 @@
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\bin\Debug\Atv03_AlgoritmoAvancado.exe.config
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\bin\Debug\Atv03_AlgoritmoAvancado.exe
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\bin\Debug\Atv03_AlgoritmoAvancado.pdb
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\obj\Debug\Atv03_AlgoritmoAvancado.csproj.AssemblyReference.cache
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\obj\Debug\Atv03_AlgoritmoAvancado.csproj.SuggestedBindingRedirects.cache
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\obj\Debug\Atv03_AlgoritmoAvancado.csproj.CoreCompileInputs.cache
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\obj\Debug\Atv03_AlgoritmoAvancado.exe
+C:\Users\n\Desktop\Repositorios\Uniaraxa\AlgoritmoAvancado\VisualStudio\Atv03_AlgoritmoAvancado\obj\Debug\Atv03_AlgoritmoAvancado.pdb
