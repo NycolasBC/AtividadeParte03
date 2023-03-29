@@ -4,90 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atv03_AlgoritmoAvancado
+namespace Atv03_AlgoritmoAvancado.Exercicios.Exercicio_05
 {
-    internal class Exercicio05
-    {
-        public static void ExercicioAlgoritmo05()
-        {
-            Console.WriteLine("\nWxercício 05:\n");
-
-            bool loop = true;
-
-            while (loop)
-            {
-                Console.WriteLine("\nMenu:\n");
-
-                Console.WriteLine("1 - Iniciar novo jogo Humano vs Humano" +
-                    "\n2 - Iniciar novo jogo Humano vs Máquina" +
-                    "\n3 - Sair");
-                int opcao = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcao)
-                {
-                    case 1:
-                        {
-                            HumanoXHumano humanoXHumano = new HumanoXHumano();
-                            humanoXHumano.FuncaoCalculo();
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            HumanoXMaquina humanoXMaquina = new HumanoXMaquina();
-                            humanoXMaquina.FuncaoCalculo();
-                            break;
-                        }
-
-                    case 3:
-                        loop = false;
-                        break;
-
-                    default:
-                        Console.WriteLine("\nDigite um valor válido!\n");
-                        break;
-                }
-            }
-            Console.WriteLine("\nFim do jogo!\n");   
-        }
-    }
-
-
-
-
-    abstract class JogoDaVelha
-    {
-        protected char Jogador01 { get; set; }
-        protected char Jogador02 { get; set; }
-
-        public virtual void FuncaoCalculo()
-        {
-
-        }
-    }
-
-
     internal class HumanoXHumano : JogoDaVelha
     {
-        private void EscolhaDeJogo()
+        public override void EscolhaDeJogo()
         {
-            Console.WriteLine("\nCom qual o primeiro jogador deseja jogar? X ou O");
-            char escolha = Char.ToUpper(Console.ReadKey().KeyChar);
+            bool escolhaCorreta = true;
 
-            if (escolha == 'X')
+            while (escolhaCorreta)
             {
-                Jogador01 = escolha;
-                Jogador02 = 'O';
+                Console.WriteLine("\nCom qual o primeiro jogador deseja jogar? X ou O");
+                char escolha = Char.ToUpper(Console.ReadKey().KeyChar);
+
+                if (escolha == 'X')
+                {
+                    Jogador01 = escolha;
+                    Jogador02 = 'O';
+                    escolhaCorreta = false;
+                }
+                else if (escolha == 'O')
+                {
+                    Jogador01 = escolha;
+                    Jogador02 = 'X';
+                    escolhaCorreta = false;
+                }
+                else
+                {
+                    Console.WriteLine("\nDigite um valor válido!\n");
+                }
             }
-            else if (escolha == 'O')
-            {
-                Jogador01 = escolha;
-                Jogador02 = 'X';
-            }
-            else
-            {
-                Console.WriteLine("\nDigite um valor válido!\n");
-            }
+            
         }
 
         public override void FuncaoCalculo()
@@ -110,7 +57,15 @@ namespace Atv03_AlgoritmoAvancado
 
             int jogadas = 0;
 
-            while (jogadas != 9)
+            bool vitoriaX_Linhas = true;
+            bool vitoriaX_Colunas = true;
+            bool vitoriaX_Cruzado = true;
+
+            bool vitoriaO_Linhas = true;
+            bool vitoriaO_Colunas = true;
+            bool vitoriaO_Cruzado = true;
+
+            while (vitoriaX_Linhas && vitoriaX_Colunas && vitoriaX_Cruzado && vitoriaO_Linhas && vitoriaO_Colunas && vitoriaO_Cruzado && jogadas != 9)
             {
                 jogueDeNovo:
 
@@ -264,7 +219,17 @@ namespace Atv03_AlgoritmoAvancado
                     Console.WriteLine();
                 }
 
-                if (jogadas != 9)
+
+                vitoriaX_Linhas = (tabela[0, 0] == 'X' && tabela[0, 1] == 'X' && tabela[0, 2] == 'X') || (tabela[1, 0] == 'X' && tabela[1, 1] == 'X' && tabela[1, 2] == 'X') || (tabela[2, 0] == 'X' && tabela[2, 1] == 'X' && tabela[2, 2] == 'X') ? false : true;
+                vitoriaX_Colunas = (tabela[0, 0] == 'X' && tabela[1, 0] == 'X' && tabela[2, 0] == 'X') || (tabela[0, 1] == 'X' && tabela[1, 1] == 'X' && tabela[2, 1] == 'X') || (tabela[0, 2] == 'X' && tabela[1, 2] == 'X' && tabela[2, 2] == 'X') ? false : true;
+                vitoriaX_Cruzado = (tabela[0, 0] == 'X' && tabela[1, 1] == 'X' && tabela[2, 2] == 'X') || (tabela[0, 2] == 'X' && tabela[1, 1] == 'X' && tabela[2, 0] == 'X') ? false : true;
+
+                vitoriaO_Linhas = (tabela[0, 0] == 'O' && tabela[0, 1] == 'O' && tabela[0, 2] == 'O') || (tabela[1, 0] == 'O' && tabela[1, 1] == 'O' && tabela[1, 2] == 'O') || (tabela[2, 0] == 'O' && tabela[2, 1] == 'O' && tabela[2, 2] == 'O') ? false : true;
+                vitoriaO_Colunas = (tabela[0, 0] == 'O' && tabela[1, 0] == 'O' && tabela[2, 0] == 'O') || (tabela[0, 1] == 'O' && tabela[1, 1] == 'O' && tabela[2, 1] == 'O') || (tabela[0, 2] == 'O' && tabela[1, 2] == 'O' && tabela[2, 2] == 'O') ? false : true;
+                vitoriaO_Cruzado = (tabela[0, 0] == 'O' && tabela[1, 1] == 'O' && tabela[2, 2] == 'O') || (tabela[0, 2] == 'O' && tabela[1, 1] == 'O' && tabela[2, 0] == 'O') ? false : true;
+
+
+                if (vitoriaX_Linhas && vitoriaX_Colunas && vitoriaX_Cruzado && vitoriaO_Linhas && vitoriaO_Colunas && vitoriaO_Cruzado && jogadas != 9)
                 {
                     jogueDeNovo2:
 
@@ -405,7 +370,6 @@ namespace Atv03_AlgoritmoAvancado
                                 goto jogueDeNovo2;
                             }
                     }
-                    Console.WriteLine($"\nJogadas: {jogadas}\n");
 
                     Console.WriteLine();
                     Console.WriteLine();
@@ -418,44 +382,23 @@ namespace Atv03_AlgoritmoAvancado
                         }
                         Console.WriteLine();
                     }
-                }  
+                }
             }
 
             if (jogadas == 9)
             {
-                Console.WriteLine("\nEMPATE\n");
+                Console.WriteLine("\n\nEMPATE\n\n");
             }
+            else if (!vitoriaX_Linhas || !vitoriaX_Colunas || !vitoriaX_Cruzado)
+            {
+                Console.WriteLine("\n\nVITÓRIA DO X\n\n");
+            }
+            else if (!vitoriaO_Linhas || !vitoriaO_Colunas || !vitoriaO_Cruzado)
+            {
+                Console.WriteLine("\n\nVITÓRIA DO O\n\n");
+            }
+
             Console.WriteLine("\nFim da partida!\n");
-        }
-    }
-
-
-    internal class HumanoXMaquina : JogoDaVelha
-    {
-        private void EscolhaDeJogo()
-        {
-            Console.WriteLine("\nCom qual o primeiro jogador deseja jogar? X ou O");
-            char escolha = Char.ToUpper(Console.ReadKey().KeyChar);
-
-            if (escolha == 'X')
-            {
-                Jogador01 = escolha;
-                Jogador02 = 'O';
-            }
-            else if (escolha == 'O')
-            {
-                Jogador01 = escolha;
-                Jogador02 = 'X';
-            }
-            else
-            {
-                Console.WriteLine("\nDigite um valor válido!\n");
-            }
-        }
-
-        public override void FuncaoCalculo()
-        {
-            
         }
     }
 }
