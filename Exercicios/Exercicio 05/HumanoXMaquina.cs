@@ -11,7 +11,7 @@ namespace Atv03_AlgoritmoAvancado.Exercicios.Exercicio_05
         public override void EscolhaDeJogo()
         {
             Console.WriteLine("\nCom qual o primeiro jogador deseja jogar? X ou O");
-            char escolha = Char.ToUpper(Console.ReadKey().KeyChar);
+            char escolha = Char.ToUpper(Convert.ToChar(Console.ReadLine()));
 
             if (escolha == 'X')
             {
