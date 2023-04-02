@@ -82,8 +82,7 @@
     <Compile Include="Exercicios\Exercicio 05\HumanoXHumano.cs" />
     <Compile Include="Exercicios\Exercicio 05\HumanoXMaquina.cs" />
     <Compile Include="Exercicios\Exercicio 05\JogoDaVelha.cs" />
-    <Compile Include="Exercicios\Exercicio 06\Exercicio06.cs" />
-    <Compile Include="Exercicios\Exercicio 06\JogoDaMemoria.cs" />
+    <Compile Include="Exercicios\Exercicio06.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
